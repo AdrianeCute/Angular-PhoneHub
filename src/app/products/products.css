@@ -1,0 +1,242 @@
+
+/* 🔥 Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+/* 🔥 Section Title */
+.section-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* 🔥 Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+/* 🔥 Product Card */
+.product-card .button {
+
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+.product-card button {
+  height: 2.8em;
+  width: 9em;
+  background: transparent;
+  -webkit-animation: jello-horizontal 0.9s both;
+  animation: jello-horizontal 0.9s both;
+  border: 2px solid #016dd9;
+  outline: none;
+  color: #016dd9;
+  cursor: pointer;
+  font-size: 17px;
+}
+.product-card button:hover {
+    background: #016dd9;
+    color: #ffffff;
+    animation: squeeze3124 0.9s both;
+}
+@keyframes squeeze3124 {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  30% {
+    -webkit-transform: scale3d(1.25, 0.75, 1);
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    -webkit-transform: scale3d(0.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.15, 0.85, 1);
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    -webkit-transform: scale3d(0.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    -webkit-transform: scale3d(1.05, 0.95, 1);
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 16px;
+  color: #ff5722;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.add-to-cart {
+  padding: 10px 15px;
+  border: none;
+  background: #ff5722;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-to-cart:hover {
+  background: #e64a19;
+}
+
+
+/* notification */
+
+.notification-drop ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.notification-drop {
+  font-family: 'Ubuntu', sans-serif;
+  color: #444;
+}
+.notification-drop .item {
+  padding: 10px;
+  font-size: 18px;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+.notification-drop .item:hover {
+  cursor: pointer;
+}
+.notification-drop .item i {
+  margin-left: 10px;
+}
+.notification-drop .item ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  background: #fff;
+  left: -200px;
+  right: 0;
+  z-index: 1;
+  border-top: 1px solid #ddd;
+}
+.notification-drop .item ul li {
+  font-size: 16px;
+  padding: 15px 0 15px 25px;
+}
+.notification-drop .item ul li:hover {
+  background: #ddd;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (min-width: 500px) {
+  .notification-drop {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .notification-drop .item {
+    border: none;
+  }
+}
+
+
+
+.notification-bell{
+  font-size: 20px;
+}
+
+.notification-drop .btn__badge {
+  background: #FF5D5D;
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  top: 0;
+  right: 0px;
+  padding:  3px 10px;
+  border-radius: 50%;
+}
+
+.notification-drop .pulse-button {
+  box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.5);
+  -webkit-animation: pulse 1.5s infinite;
+}
+
+.notification-drop .pulse-button:hover {
+  -webkit-animation: none;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  70% {
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    box-shadow: 0 0 0 50px rgba(255, 0, 0, 0);
+  }
+  100% {
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+  }
+}
+
+.notification-drop .notification-text{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.notification-drop .notification-text span{
+  float: right;
+}

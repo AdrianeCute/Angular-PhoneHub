@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ececec;
+}
+
+/* 🔥 Navigation */
+nav {
+  background-color: #270404;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ff5722;
+}
+
+/* 🔥 Header */
+header {
+  background: linear-gradient(45deg, #ff5722, #ff784e);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* 🔥 Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+/* 🔥 Section Title */
+.section-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* 🔥 Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+/* 🔥 Product Card */
+.product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 16px;
+  color: #ff5722;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.add-to-cart {
+  padding: 10px 15px;
+  border: none;
+  background: #ff5722;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-to-cart:hover {
+  background: #e64a19;
+}
+
+/* 🔥 Footer */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+}

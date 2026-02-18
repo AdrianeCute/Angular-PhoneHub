@@ -1,0 +1,75 @@
+<div class="container">
+<!-- 🛒 Cart Dropdown -->
+<div class="notification-drop">
+
+  <div class="item">
+
+    <button class="button1" type="button" (click)="toggleCart()">
+      Cart ({{ cart.length }})
+    </button>
+
+    <ul [style.display]="showCart ? 'block' : 'none'">
+
+      <li *ngIf="cart.length === 0">
+        Cart is empty
+      </li>
+
+      <li *ngFor="let item of cart; let i = index">
+        {{ item.name }} - ₱{{ item.price | number }}
+        <button (click)="removeFromCart(i); $event.stopPropagation()">
+          ❌
+        </button>
+      </li>
+      <li>
+         <h3 *ngIf="cart.length > 0">
+        Total: ₱{{ total | number }}
+        </h3>
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>
+
+
+  <h2 class="section-title">Featured Phones</h2>
+
+  <div class="product-grid">
+
+    <div class="product-card" *ngFor="let product of products">
+
+      <img [src]="product.image" [alt]="product.name">
+        
+      <div class="product-info">
+
+        <div class="product-name">
+          {{ product.name }}
+        </div>
+
+        <div class="product-price">
+          ₱{{ product.price | number }}
+
+        </div>
+        <div>
+          Stock: {{ product.stock | number}}
+        </div>
+       
+        <button 
+        class="add-to-cart"
+        (click)="addToCart(product)"z
+        [disabled]="product.stock === 0">
+
+        {{ product.stock === 0 ? 'Out of Stock' : 'Add to Cart' }}
+
+        </button>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
