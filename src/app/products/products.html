@@ -1,14 +1,15 @@
 <div class="container">
 <!-- 🛒 Cart Dropdown -->
 <div class="notification-drop">
-
   <div class="item">
-
-    <button class="button1" type="button" (click)="toggleCart()">
-      Cart ({{ cart.length }})
+    <button class="icon-button" type="button" (click)="toggleCart()">
+        <span class="material-icons">notifications</span>
+    <span class="icon-button__badge">{{ cart.length }}</span>
+       
     </button>
 
-    <ul [style.display]="showCart ? 'block' : 'none'">
+    <ul [ngStyle]="{ display: showCart ? 'block' : 'none' }">
+
 
       <li *ngIf="cart.length === 0">
         Cart is empty
