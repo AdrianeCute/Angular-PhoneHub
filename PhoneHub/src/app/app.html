@@ -1,284 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hot Sale Phones</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhoneHub</title>
 
-    header {
-      background-color: #ff5722;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-      font-size: 28px;
-      font-weight: bold;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
 
-    .product-card-wrapper {
-      position: relative;
-    }
+/* 🔥 Navigation */
+nav {
+  background-color: #222;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-    .product-card {
-      background-color: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
 
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    }
+nav ul li {
+  margin: 0 20px;
+}
 
-    .product-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
 
-    .sale-badge {
-      position: absolute;
-      background-color: #ff5722;
-      color: white;
-      padding: 5px 10px;
-      font-size: 12px;
-      font-weight: bold;
-      top: 10px;
-      left: 10px;
-      border-radius: 4px;
-      z-index: 1;
-    }
+nav ul li a:hover {
+  color: #ff5722;
+}
 
-    .product-info {
-      padding: 15px;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+/* 🔥 Header */
+header {
+  background: linear-gradient(45deg, #ff5722, #ff784e);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 30px;
+  font-weight: bold;
+}
 
-    .product-name {
-      font-size: 16px;
-      font-weight: bold;
-      margin-bottom: 8px;
-      color: #333;
-    }
+/* 🔥 Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+}
 
-    .price-wrapper {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-    }
+/* 🔥 Section Title */
+.section-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #333;
+}
 
-    .old-price {
-      text-decoration: line-through;
-      color: #999;
-      font-size: 14px;
-      margin-right: 8px;
-    }
+/* 🔥 Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
 
-    .product-price {
-      font-size: 16px;
-      font-weight: bold;
-      color: #ff5722;
-    }
+/* 🔥 Product Card */
+.product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
 
-    .add-to-cart {
-      padding: 8px;
-      background-color: #ff5722;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background-color 0.2s;
-    }
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
 
-    .add-to-cart:hover {
-      background-color: #e64a19;
-    }
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
 
-    @media (max-width: 600px) {
-      .product-card img {
-        height: 150px;
-      }
-    }
-  </style>
+.product-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 16px;
+  color: #ff5722;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.add-to-cart {
+  padding: 10px 15px;
+  border: none;
+  background: #ff5722;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-to-cart:hover {
+  background: #e64a19;
+}
+
+/* 🔥 Footer */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <header>🔥 PhoneHub 🔥</header>
+<!-- 🔥 Navigation -->
+<nav>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Products</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- 🔥 Header -->
+<header>
+  🔥 PhoneHub - Best Deals on Smartphones 🔥
+</header>
+
+<div class="container">
+
+  <h2 class="section-title">Featured Phones</h2>
 
   <div class="product-grid">
-    <div class="product-card-wrapper">
-      <div class="sale-badge">SALE</div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200x200?text=iPhone+14" alt="iPhone 14">
-        <div class="product-info">
-          <div class="product-name">iPhone 14</div>
-          <div class="price-wrapper">
-            <span class="old-price">₱50,000</span>
-            <span class="product-price">₱45,000</span>
-          </div>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x220?text=iPhone+15" alt="">
+      <div class="product-info">
+        <div class="product-name">iPhone 15</div>
+        <div class="product-price">₱52,000</div>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
     </div>
 
-    <div class="product-card-wrapper">
-      <div class="sale-badge">SALE</div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200x200?text=Samsung+S23" alt="Samsung S23">
-        <div class="product-info">
-          <div class="product-name">Samsung S23</div>
-          <div class="price-wrapper">
-            <span class="old-price">₱42,000</span>
-            <span class="product-price">₱38,000</span>
-          </div>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x220?text=Samsung+S24" alt="">
+      <div class="product-info">
+        <div class="product-name">Samsung Galaxy S24</div>
+        <div class="product-price">₱48,000</div>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
     </div>
 
-    <div class="product-card-wrapper">
-      <div class="sale-badge">SALE</div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200x200?text=OPPO+Reno+9" alt="OPPO Reno 9">
-        <div class="product-info">
-          <div class="product-name">OPPO Reno 9</div>
-          <div class="price-wrapper">
-            <span class="old-price">₱20,000</span>
-            <span class="product-price">₱18,500</span>
-          </div>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x220?text=Xiaomi+14" alt="">
+      <div class="product-info">
+        <div class="product-name">Xiaomi 14</div>
+        <div class="product-price">₱32,000</div>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
     </div>
 
-    <div class="product-card-wrapper">
-      <div class="sale-badge">SALE</div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200x200?text=Vivo+V27" alt="Vivo V27">
-        <div class="product-info">
-          <div class="product-name">Vivo V27</div>
-          <div class="price-wrapper">
-            <span class="old-price">₱19,000</span>
-            <span class="product-price">₱17,000</span>
-          </div>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x220?text=Vivo+V30" alt="">
+      <div class="product-info">
+        <div class="product-name">Vivo V30</div>
+        <div class="product-price">₱24,500</div>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
     </div>
 
-    <div class="product-card-wrapper">
-      <div class="sale-badge">SALE</div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200x200?text=Xiaomi+13" alt="Xiaomi 13">
-        <div class="product-info">
-          <div class="product-name">Xiaomi 13</div>
-          <div class="price-wrapper">
-            <span class="old-price">₱30,000</span>
-            <span class="product-price">₱27,500</span>
-          </div>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
+    <div class="product-card">
+      <img src="https://via.placeholder.com/300x220?text=Oppo+Find+X7" alt="">
+      <div class="product-info">
+        <div class="product-name">Oppo Find X7</div>
+        <div class="product-price">₱29,999</div>
+        <button class="add-to-cart">Add to Cart</button>
       </div>
     </div>
 
-    <div class="product-card-wrapper">
-      <div class="sale-badge">SALE</div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200x200?text=OnePlus+11" alt="OnePlus 11">
-        <div class="product-info">
-          <div class="product-name">OnePlus 11</div>
-          <div class="price-wrapper">
-            <span class="old-price">₱36,000</span>
-            <span class="product-price">₱33,000</span>
-          </div>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card-wrapper">
-      <div class="sale-badge">SALE</div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200x200?text=iPhone+13" alt="iPhone 13">
-        <div class="product-info">
-          <div class="product-name">iPhone 13</div>
-          <div class="price-wrapper">
-            <span class="old-price">₱45,000</span>
-            <span class="product-price">₱41,000</span>
-          </div>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card-wrapper">
-      <div class="sale-badge">SALE</div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200x200?text=Samsung+S22" alt="Samsung S22">
-        <div class="product-info">
-          <div class="product-name">Samsung S22</div>
-          <div class="price-wrapper">
-            <span class="old-price">₱40,000</span>
-            <span class="product-price">₱36,000</span>
-          </div>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card-wrapper">
-      <div class="sale-badge">SALE</div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200x200?text=OPPO+Find+X6" alt="OPPO Find X6">
-        <div class="product-info">
-          <div class="product-name">OPPO Find X6</div>
-          <div class="price-wrapper">
-            <span class="old-price">₱28,000</span>
-            <span class="product-price">₱25,500</span>
-          </div>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="product-card-wrapper">
-      <div class="sale-badge">SALE</div>
-      <div class="product-card">
-        <img src="https://via.placeholder.com/200x200?text=Vivo+V26" alt="Vivo V26">
-        <div class="product-info">
-          <div class="product-name">Vivo V26</div>
-          <div class="price-wrapper">
-            <span class="old-price">₱18,500</span>
-            <span class="product-price">₱16,800</span>
-          </div>
-          <button class="add-to-cart">Add to Cart</button>
-        </div>
-      </div>
-    </div>
   </div>
+
+</div>
+
+<footer>
+  ©  Website ni yanyan
+</footer>
 
 </body>
 </html>
